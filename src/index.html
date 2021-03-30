@@ -12,9 +12,22 @@
     <script nomodule src="/build/muse-technical-challenge.js"></script>
   </head>
   <body>
-    <my-component
-      first="Stencil"
-      last="'Don't call me a framework' JS"
-    ></my-component>
+    <div style="margin-bottom: 10px;">
+      <fe-toggle class="fe-toggle" name="toggle"/>
+    </div>
+    <div style="margin-bottom: 10px;">
+      <fe-toggle class="fe-toggle" disabled="true" label="Disabled" name="disabledToggle" />
+    </div>
+    <div>
+      <fe-toggle class="fe-toggle" is-round="false" label="Square" name="squareToggle" />
+    </div>
   </body>
 </html>
+
+<script>
+    const toggleElement = document.querySelector('fe-toggle');
+
+    toggleElement.addEventListener('onToggle', event => { 
+      console.log({ event })
+    });
+</script>
