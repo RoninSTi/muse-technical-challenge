@@ -6,56 +6,41 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface FeToggle {
+        "disabled": boolean;
+        "isRound": boolean;
+        "label": string;
+        "name": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLFeToggleElement extends Components.FeToggle, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLFeToggleElement: {
+        prototype: HTMLFeToggleElement;
+        new (): HTMLFeToggleElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "fe-toggle": HTMLFeToggleElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface FeToggle {
+        "disabled"?: boolean;
+        "isRound"?: boolean;
+        "label"?: string;
+        "name"?: string;
+        "onOnToggle"?: (event: CustomEvent<any>) => void;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "fe-toggle": FeToggle;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "fe-toggle": LocalJSX.FeToggle & JSXBase.HTMLAttributes<HTMLFeToggleElement>;
         }
     }
 }
